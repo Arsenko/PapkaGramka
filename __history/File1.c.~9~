@@ -1,0 +1,40 @@
+#pragma hdrstop
+#pragma argsused
+
+#include <stdio.h>
+#include <tchar.h>
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	FILE *f=fopen("C:\\asd.txt","r");
+	FILE *back=fopen("C:\\1\\back.txt","w+");
+
+	char str[20];
+	if (f==NULL) {
+		printf("error");
+	}
+	else{
+		printf("ok");
+		if (back==NULL) {
+			printf("error");
+		}
+		else{
+			int i=0;
+			printf("ok");
+			while(!feof(f))
+			{
+				fgets(str,10,f);
+				fseek(f,strlen(str),SEEK_END);
+				fputs(str,back);
+			}
+				//	 ;
+			if(f) fclose(f);
+			if(back) fclose(back);
+
+
+		}
+	}
+	return 0;
+}
+
